@@ -680,7 +680,7 @@ interface IUniswapV2Router02 is IUniswapV2Router01 {
 }
 
 
-contract JasminePlus is Context, IERC20, Ownable {
+contract BroilerPlus is Context, IERC20, Ownable {
     using SafeMath for uint256;
     using Address for address;
 
@@ -698,8 +698,8 @@ contract JasminePlus is Context, IERC20, Ownable {
     uint256 private _rTotal = (MAX - (MAX % _tTotal));
     uint256 private _tFeeTotal;
 
-    string private _name = "JasminePlus";
-    string private _symbol = "JANP";
+    string private _name = "BroilerToken";
+    string private _symbol = "BRT";
     uint8 private _decimals = 9;
 
     uint256 public _taxFee = 2;
@@ -741,7 +741,7 @@ contract JasminePlus is Context, IERC20, Ownable {
     constructor () public {
         _rOwned[_msgSender()] = _rTotal;
 
-        IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(0x05fF2B0DB69458A0750badebc4f9e13aDd608C7F);
+        IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff);
          // Create a uniswap pair for this new token
         uniswapV2Pair = IUniswapV2Factory(_uniswapV2Router.factory())
             .createPair(address(this), _uniswapV2Router.WETH());
