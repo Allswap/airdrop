@@ -1,4 +1,4 @@
-# Allswap Airdreop
+# Allswap Airdrop
 
 [![Lint](https://github.com/Allswap/airdrop)](https://github.com/Allswap/airdrop)
 [![Deploy](https://github.com/Allswap/airdrop)](https://github.com/Allswap/airdrop)
