@@ -15,6 +15,9 @@ contract HopeNobt is ERC20("Hope Nobt", "hNOBT"), Ownable {
     uint256 rewardAmount;
     uint256 maxRefLevel;
 
+    event EndBlock(uint256 _endBlock);
+
+
     struct UserInfo {
         mapping(address => uint256) rewards;
         uint256 rewardCount;
@@ -57,6 +60,7 @@ contract HopeNobt is ERC20("Hope Nobt", "hNOBT"), Ownable {
 
     function setEnd(uint256 _rewardEndBlock) public onlyOwner {
         rewardEndBlock = _rewardEndBlock;
+        emit EndBlock(_rewardEndBlock);
     }
 
     function addReferral(address _sender, address _recipient) public onlyOwner {
@@ -79,7 +83,7 @@ contract HopeNobt is ERC20("Hope Nobt", "hNOBT"), Ownable {
         address[] memory _invitees = uInfo[_addr].invitees;
         uint256 _total_count;
         uint256 _total_amount;
-        for (uint256 idx; idx < _invitees.length; idx ++) {
+        for (uint256 idx = 0; idx < _invitees.length; idx ++) {
             address u = _invitees[idx];
             _total_count += 1;
             _total_amount += balanceOf(u);
@@ -122,7 +126,7 @@ contract HopeNobt is ERC20("Hope Nobt", "hNOBT"), Ownable {
         address[] storage refs = uInfo[recipient].referrals;
         refs.push(sender);
         address _ref = sender;
-        for (uint level; level < maxRefLevel; level ++) {
+        for (uint level = 0; level < maxRefLevel; level ++) {
             _ref = refMap[_ref];
             if (_ref == address(0)) {
                 return;
