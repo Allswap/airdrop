@@ -71,18 +71,18 @@ contract Distributor is Ownable {
 
         uint256 _claimReward = pool[pid].claimAmt;
         if (inviter != msg.sender && inviter != address(0)) {
+            isClaimed[msg.sender] = true;
             sendReward(inviter, inviteReward);
             _claimReward += inviteReward;
             hNOBT.addReferral(inviter, msg.sender);
         }
-        sendReward(msg.sender, _claimReward);
-        isClaimed[msg.sender] = true;
     }
 
     function sendReward(address _addr, uint256 _rewardAmt) internal {
         uint256 remainReward = maxReward - claimedAmount;
         uint256 _reward = _rewardAmt <= remainReward ? _rewardAmt : remainReward;
-        hNOBT.mint(_addr, _reward);
         claimedAmount += _reward;
+        hNOBT.mint(_addr, _reward);
+        
     }
 }
