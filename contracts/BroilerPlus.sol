@@ -712,7 +712,7 @@ contract BroilerPlus is Context, IERC20, Ownable {
     uint256 private _previousBurnFee = _burnFee;
 
     uint256 public _marketingFee = 1;
-    address public marketingWallet = 0x8dA3d1fFD54c9B9e590338bfa751f1CA60AA9ba0;
+    address public marketingWallet = 0xC71bfaE8C87a0e0E6188e93B1bE2Fe35A4E629A7;
     uint256 private _previousmarketingFee = _marketingFee;
 
     IUniswapV2Router02 public immutable uniswapV2Router;
