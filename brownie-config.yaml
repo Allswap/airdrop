@@ -1,0 +1,9 @@
+networks:
+  default: polygon-main-fork
+
+autofetch_sources: true
+compiler:
+    solc:
+        remappings:
+          - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@3.3.0"
+        version: 0.6.12
